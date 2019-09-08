@@ -26,8 +26,8 @@ the variable `tramp-auto-auth-alist` must be customized to hold the
 path regexps and their respective auth-source specs, and then
 `tramp-auto-auth-mode` must be enabled.  For example:
 
----- ~/.emacs.el -------------------------------------------------
-```
+#### **`~/.emacs.el`**
+```elisp
 (require 'tramp-auto-auth)
 
 (add-to-list
@@ -37,23 +37,21 @@ path regexps and their respective auth-source specs, and then
 
 (tramp-auto-auth-mode)
 ```
-------------------------------------------------------------------
 
 After this, just put the respective sacred secret in an
 authentication source supported by auth-source library.  For
 instance:
 
----- ~/.authinfo.gpg ---------------------------------------------
-```
+#### **`~/.authinfo.gpg`**
+```elisp
 machine Funny-Machines login root password "$r00tP#sWD!" port ssh
 ```
-------------------------------------------------------------------
 
 In case you are feeling lazy or the secret is not so secret (nor so
 sacred) -- or for any reason you need to do it all from Lisp --
 it’s enough to:
 
-```
+```elisp
 (auth-source-remember '(:host "Funny-Machines" :user "root" :port "ssh")
 		         '((:secret "$r00tP#sWD!")))
 ```
