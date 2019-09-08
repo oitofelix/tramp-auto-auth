@@ -6,8 +6,6 @@
 ;; Keywords: comm, processes
 ;; Package: tramp-auto-auth
 ;; Homepage: https://github.com/oitofelix/tramp-auto-auth
-
-;; Package-Version: 20190827.1316
 ;; Package-Requires: ((emacs "24.4") (tramp "0.0"))
 
 ;; This program is free software: you can redistribute it and/or modify
