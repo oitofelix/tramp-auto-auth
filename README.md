@@ -11,7 +11,7 @@ query passwords using the `auth-source` library directly, since this
 would require each host to be listed explicitly and immutably in a
 Netrc file.  Another scenario where this mode is useful are
 non-interactive Emacs sessions (like those used for batch processing
-or by evaluating ‘:async’ Org Babel source blocks) in which it’s
+or by evaluating `:async` Org Babel source blocks) in which it’s
 impossible for the user to answer a password-asking prompt.
 
 When a TRAMP prompt is encountered, `tramp-auto-auth-mode` queries the
