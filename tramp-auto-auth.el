@@ -1,4 +1,4 @@
-;;; tramp-auto-auth.el --- TRAMP automatic authentication library
+;;; tramp-auto-auth.el --- TRAMP automatic authentication library -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Bruno Félix Rezende Ribeiro <oitofelix@gnu.org>
 
