@@ -146,8 +146,9 @@ authenticate to remote servers."
 					      (funcall pre-secret)
 					    pre-secret))
 			      (guard secret))
-			 (process-send-string
-			  proc (concat secret tramp-local-end-of-line)))
+			 (when (and spec pre-secret)  ; See [0] below.
+                           (process-send-string
+                            proc (concat secret tramp-local-end-of-line))))
 			(_ (funcall tramp-action-password proc vec))))
 		    '((name . tramp-auto-auth-mode)))
 	(advice-add #'tramp-action-yesno :around
@@ -162,6 +163,12 @@ authenticate to remote servers."
 		    '((name . tramp-auto-auth-mode))))
     (advice-remove #'tramp-action-password 'tramp-auto-auth-mode)
     (advice-remove #'tramp-action-yesno 'tramp-auto-auth-mode)))
+
+;; [0] This ‘when’ is superfluous, but pacifies the byte compiler
+;;     which would otherwise spuriously warn that ‘spec’ and
+;;     ‘pre-secret’ are unused lexical variables.  This bug should be
+;;     reported to Emacs core developers.  Thanks to Chris Rayner for
+;;     pointing this out.
 
 
 (provide 'tramp-auto-auth)
